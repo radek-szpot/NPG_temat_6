@@ -12,4 +12,6 @@ Funkcjonalności:
     Jedna zaproponowane przez grupę.
 
 Projekt będzie tworzony w języku PYTHON, uzywając interfejsu 
-Każdy będzie pracować w swoim branchu 
+Każdy będzie pracować w swoim branchu.
+
+Naszymi narzędziami pracy będzie github
