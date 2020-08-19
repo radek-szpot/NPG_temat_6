@@ -10,3 +10,5 @@ Funkcjonalności:
     Zapis zadań do pliku pod zadaną ścieżkę.
     Usuwanie i edytowanie zadań.
     Jedna zaproponowane przez grupę.
+
+Projekt będzie tworzony w języku PYTHON, uzywając interfejsu 
