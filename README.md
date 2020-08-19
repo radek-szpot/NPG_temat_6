@@ -9,7 +9,7 @@ Funkcjonalności:
     Zapis i wczytywanie zadań przy zamknięciu/otwarciu programu.
     Zapis zadań do pliku pod zadaną ścieżkę.
     Usuwanie i edytowanie zadań.
-    Jedna zaproponowane przez grupę.
+    Jedna zaproponowane przez grupę - Możliwość ustalenia priorytetu zadania.
 
 Projekt będzie tworzony w języku PYTHON, uzywając interfejsu 
 Każdy będzie pracować w swoim branchu.
