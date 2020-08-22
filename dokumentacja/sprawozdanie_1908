@@ -1,17 +1,24 @@
 Sprawozdanie będzie dotyczyć ustaleń:
-Plan działania
+
+Plan działania:
 1. zarys projektu + plan pracy - wspólnie 
 2. podział obowiązków 
 3. wypisanie zadań
+4. tworzenie dokumentacji na bierząco
 
 Ustalenia:
-1. najpierw robimy funkcjonalność klasy
-2. testujemy funkcjonalność
-3. potem przechodzimy do tworzenia interfejsu
+1. najpierw robimy funkcjonalności
+2. sklejamy do calości i testujemy funkcjonalność 
+3. przechodzimy do tworzenia interfejsu (w zaleznosci czy starczy czasu)
 4. kodujemy w języku angielskim tj - nazwy funkcji, zmiennych itp
+5. niech każdy utworzy swoje moduły o rozszerzeniu .py i doda do repo
 
-
+Podział obowiązków:
+Paweł Mańka - funkcjonalność 1 (moduł "add_new_task.py")
+Radosław Szpot - sklejanie programu w całość + funkcjonalność 3/4
+Barbara Pobiedzińska - funkcjonalność 2 (moduł "print_tasks.py") 
+Anna Bernacka - 
+Michał Spinczyk - 
 
 notatnik na przemyślenia
-Podział obowiązków:
-1 funkcjonalność - Paweł Mańka 
+w razie problemów najwygodniej dac znac na trello https://trello.com/c/Xf3IpOfD/7-lista-zada%C5%84-z-mailem
