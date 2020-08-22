@@ -9,7 +9,9 @@ def start():
     action = int(input())
     next_action(action)
 
-def next_action(action=0):
+def next_action(listOfTasks, action=0):  #dodałem drugi arguement czyli liste zadań która będzie listą dwuwymiarową
+        #pierwszy wymiar w liście będzie miał za zadanie określić wagę/priorytet zadania, drugi zaś będzie przechowywał zadania
+
     if action == 1:
         # add_new_task() TODO:PAWEL
         exit()
