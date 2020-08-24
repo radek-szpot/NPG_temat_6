@@ -1,7 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+'''
+Esencja naszego przyszlego programu
+'''
 import json
-import Saving_files
 
 #przykładowa funckcja dodająca zadanie
 def add_task(id, name, desc):
