@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"name": "nazwa1",
+		"importance": 1,
+		"description": "opis1"
+	},
+	{
+		"id": 2,
+		"name": "nazwa2",
+		"importance": 2,
+		"description": "opis2"
+	},
+	{
+		"id": 3,
+		"name": "nazwa3",
+		"importance": 3,
+		"description": "opis3"
+	}
+]
