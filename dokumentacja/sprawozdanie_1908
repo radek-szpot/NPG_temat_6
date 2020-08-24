@@ -4,12 +4,12 @@ Plan działania:
 1. zarys projektu + plan pracy - wspólnie 
 2. podział obowiązków 
 3. wypisanie zadań
-4. tworzenie dokumentacji na bierząco
+4. tworzenie dokumentacji na bieżąco
 
 Ustalenia:
 1. najpierw robimy funkcjonalności
 2. sklejamy do calości i testujemy funkcjonalność 
-3. przechodzimy do tworzenia interfejsu (w zaleznosci czy starczy czasu)
+3. przechodzimy do tworzenia interfejsu (w zależnosci czy starczy czasu)
 4. kodujemy w języku angielskim tj - nazwy funkcji, zmiennych itp
 5. niech każdy utworzy swoje moduły o rozszerzeniu .py i doda do repo
 
