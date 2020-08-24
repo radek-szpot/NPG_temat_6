@@ -10,6 +10,8 @@ def start():
     next_action(action)
 
 def next_action(action=0):
+
+    #tutaj trzeba dać tablice dwuwymiarową, 1 wymiar odpowiada za ważność zadania, 2 przechowuje liste zadań z tą ważnością
     if action == 1:
         add_new_task()
         exit()
