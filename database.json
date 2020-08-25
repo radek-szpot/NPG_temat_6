@@ -1,1 +1,38 @@
-[{"id": 1, "name": "nazwa1", "importance": 1, "description": "opis1"}, {"id": 2, "name": "nazwa2", "importance": 2, "description": "opis2"}, {"id": 3, "name": "nazwa3", "importance": 3, "description": "opis3"}, {"id": 4, "name": "Paul is the best", "importance": 3, "description": "this is my first test"}, {"id": 5, "name": "At bragging", "importance": 3, "description": "2nd test"}, {"id": 6, "name": "TaskName", "importance": 1, "description": "Test"}]
+[
+    {
+        "id": 1,
+        "name": "nazwa1",
+        "importance": 1,
+        "description": "opis1"
+    },
+    {
+        "id": 2,
+        "name": "nazwa2",
+        "importance": 2,
+        "description": "opis2"
+    },
+    {
+        "id": 3,
+        "name": "nazwa3",
+        "importance": 3,
+        "description": "opis3"
+    },
+    {
+        "id": 4,
+        "name": "Paul is the best",
+        "importance": 3,
+        "description": "this is my first test"
+    },
+    {
+        "id": 5,
+        "name": "At bragging",
+        "importance": 3,
+        "description": "2nd test"
+    },
+    {
+        "id": 6,
+        "name": "TaskName",
+        "importance": 1,
+        "description": "Test"
+    }
+]
