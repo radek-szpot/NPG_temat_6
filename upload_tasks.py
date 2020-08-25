@@ -14,11 +14,11 @@ def upload():
     for i in json_data:
         if i['importance'] == 1:
             colours.prGreen(i['name'])
-            print(' ', i['description'])
+            print(' -', i['description'])
         elif i['importance'] == 2:
             colours.prYellow(i['name'])
-            print(' ', i['description'])
+            print(' -', i['description'])
         elif i['importance'] == 3:
             colours.prRed(i['name'])
-            print(' ', i['description'])
+            print(' -', i['description'])
     return json_data
