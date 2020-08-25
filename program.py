@@ -9,6 +9,7 @@ from save_tasks import save
 # from edit_Tasks import edit
 # from delete_Tasks import delete_tasks
 # from print_tasks import print_tasks
+# from save_tasks_path import save_to_path
 
 def start():
     json_data = upload()
@@ -63,6 +64,10 @@ def action(act, json_data):
     elif act == 4:
         print("Podaj sciezke pod ktora chcesz zapisac baze zadan")
         # TODO:MICHAL
+        #path = str(input())
+        #print("Jak chcesz nazwać plik?")
+        #fileName = str(input())
+        #save_to_path(path, fileName, json_data)
         next_action(json_data)
 
     elif act == 5:
