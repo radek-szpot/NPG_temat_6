@@ -1,16 +1,19 @@
 #funkcjinalnosc 5- usuwanie zadan
-#To jest tylko zarys, pozniej jeszcze doczytam jak to z tym modulem json
-#nie wiem czy w koncu mam to pisac tak jak dla slownika czy jak dla zwyklej listy
+#Jakby bylo cos zle albo kod inaczej powinnam byla napisac to niech mnie ktos powiadomi
+#Pomogl mi brat i twierdzi ze to nie do konca tak powinno byc ale dziala
 
-from Tasks import Tasks
+from Task import Task
 
 def delete_tasks (ListOfTasks):
+
     print (ListOfTasks)
-    print ("Type Task name to delete:")
-    x = input ()
-    #sprawdzic czy nazwa zadania znajduje sie w slowniku
-    if x in ListOfTasks:
-        del ListOfTasks[x]
-    else: print("Error!")
+    print("Type task id in order to delete it")
+    n = int(input())
+    a = 0
+    for i in ListOfTasks:
+        if i["id"] == n:
+            del (ListOfTasks[a])
+        a += 1
+
     print ("Task has been deleted")
     print (ListOfTasks)
