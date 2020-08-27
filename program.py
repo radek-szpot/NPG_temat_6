@@ -63,11 +63,11 @@ def action(act, json_data):
 
     elif act == 4:
         print("Podaj sciezke pod ktora chcesz zapisac baze zadan")
-        # TODO:MICHAL
         path = str(input())
         print("Jak chcesz nazwać plik?")
         fileName = str(input())
         save_to_path(path, fileName, json_data)
+        print("Plik został zapisany!")
         next_action(json_data)
 
     elif act == 5:
