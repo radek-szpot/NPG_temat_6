@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from program import start
+from program import Program
 
 if __name__ == "__main__":
-    start()
+    program = Program()
+    program.start()
