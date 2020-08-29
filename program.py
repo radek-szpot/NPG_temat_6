@@ -10,71 +10,70 @@ from save_tasks import save
 # from delete_Tasks import delete_tasks
 # from print_tasks import print_tasks
 from save_tasks_path import save_to_path
-
-def start():
-    json_data = upload()
-    next_action(json_data)
-
-def next_action(json_data):
-    print("\n","Napisz liczbe od 1 do 3 by wybrac dana akcje: \n",
-        " 1.Dodanie nowego zadania \n",
-        " 2.Wypisanie zadan \n",
-        " 3.Usuwanie lub edytowanie zadan \n",
-        " 4.Zapis bazy zadan pod zadana sciezke \n",
-        " 5.Zamkniecie programu"
-          )
-    act = int(input())
-    action(act, json_data)
+from parse_input_for_int import parse_input_for_int
 
 
-def action(act, json_data):
-    if act == 1:
-        json_data = add_new_task(json_data)
-        save(json_data)
-        next_action(json_data)
+class Program:
+    def __init__(self):
+        self.json_data = upload()
 
-    elif act == 2:
-        print("Ile zadan ma zostac wypisane? By wypisac wszystkie napisz 0")
-        task_amount = int(input())
-        if task_amount < 0:
-            print("*Nie mozna wypisac ujemnej liczby zadan*")
-            action(2, json_data)
-        else:
-            # print_tasks(task_amount, json_data) TODO:BASIA
-            next_action(json_data)
+    def start(self):
+        self.next_action()
 
-    elif act == 3:
-        print("Wybierz kojena akcje: \n",
-              "  1.Usuwanie zadania \n",
-              "  2.Edytowanie zadania \n",
-              "  3.Powrot")
-        act_ = int(input())
-        if act_ == 1:
-            # json_data = delete_tasks(json_data) TODO:ANIA
-            next_action(json_data)
-        elif act_ == 2:
-            # json_data = edit_tasks(json_data) TODO:ANIA
-            next_action(json_data)
-        elif act_ == 3:
-            next_action(json_data)
-        else:
-            print("*Prosze podac liczbe od 1 do 3*")
-            action(3, json_data)
+    def next_action(self):
+        print("\n", "Napisz liczbę od 1 do 5 by wybrać dana akcję: \n",
+              " 1.Dodanie nowego zadania \n",
+              " 2.Wypisanie zadań \n",
+              " 3.Usuwanie lub edytowanie zadań \n",
+              " 4.Zapis bazy zadań pod zadaną ścieżkę \n",
+              " 5.Zamknięcie programu"
+              )
+        chosen_action = parse_input_for_int(1, 5)
+        self.action(chosen_action)
 
-    elif act == 4:
-        print("Podaj sciezke pod ktora chcesz zapisac baze zadan")
-        path = str(input())
-        print("Jak chcesz nazwać plik?")
-        fileName = str(input())
-        save_to_path(path, fileName, json_data)
-        print("Plik został zapisany!")
-        next_action(json_data)
+    def action(self, chosen_action):
+        # Add new task
+        if chosen_action == 1:
+            self.json_data = add_new_task(self.json_data)
+            save(self.json_data)
+            self.next_action()
 
-    elif act == 5:
-        save(json_data)
-        exit()
+        # Print tasks
+        elif chosen_action == 2:
+            print("Ile zadań ma zostać wypisane? By wypisać wszystkie napisz 0")
+            task_amount = parse_input_for_int(0, None)
+            # print_tasks(task_amount, self.json_data) TODO:BASIA
+            self.next_action()
 
-    else:
-        print("*Prosze podac liczbe od 1 do 3*")
-        act = int(input())
-        action(act, json_data)
+        # Edit/delete task
+        elif chosen_action == 3:
+            print("Wybierz kojena akcje: \n",
+                  "  1.Usuwanie zadania \n",
+                  "  2.Edytowanie zadania \n",
+                  "  3.Powrót")
+            chosen_option = parse_input_for_int(1, 3)
+            if chosen_option == 1:
+                # self.json_data = delete_tasks(self.json_data) TODO:ANIA
+                save(self.json_data)
+                self.next_action()
+            elif chosen_option == 2:
+                # self.json_data = edit_tasks(self.json_data) TODO:ANIA
+                save(self.json_data)
+                self.next_action()
+            elif chosen_option == 3:
+                self.next_action()
+
+        # Save to path
+        elif chosen_action == 4:
+            print("Podaj ściezkę pod którą chcesz zapisać bazę zadań")
+            path = str(input())
+            print("Jak chcesz nazwać plik?")
+            file_name = str(input())
+            save_to_path(path, file_name, self.json_data)
+            print("Plik został zapisany!")
+            self.next_action()
+
+        # Save and exit
+        elif chosen_action == 5:
+            save(self.json_data)
+            exit()
