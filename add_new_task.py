@@ -10,19 +10,13 @@ def add_new_task (ListOfTasks):
     importance_ = int(input())
     print("Give desciptrion")
     description_ = input()
-    print("Give id")
-    id_ = input()
 
-    task = {'id': id_, 'name' : name_, 'importance' : importance_, "description" : description_} #jedno zadanie jest słownikiem a nie klasą
+    id_ = ListOfTasks[-1]["id"] + 1
 
-    if task['importance'] == 3:
-        ListOfTasks[2].append(task)
-    elif task['importance'] == 2:
-        ListOfTasks[1].append(task)
-    elif task['importance'] == 1:
-        ListOfTasks[1].append(task)
-    else:
-        print("Wrong priority number")
+    task = {"id": id_, "name": name_, "importance": importance_, "description": description_} #jedno zadanie jest słownikiem a nie klasą
+    ListOfTasks.append(task)
+
+    return ListOfTasks
 
 
 

@@ -6,35 +6,75 @@ glowna czesc wykonawcza aplikacji
 from add_new_task import add_new_task
 from upload_tasks import upload
 from save_tasks import save
-#from print_tasks import print_tasks
+# from edit_Tasks import edit
+# from delete_Tasks import delete_tasks
+# from print_tasks import print_tasks
+from save_tasks_path import save_to_path
 
 def start():
     json_data = upload()
-    print("Napisz liczbe od 1 do 3 by wybrac dana akcje: \n 1.Dodanie nowego zadania \n 2.Wypisanie zadan \n 3.Zamkniecie programu")
-    action = int(input())
-    next_action(action, json_data)
+    next_action(json_data)
 
-def next_action(action, json_data):
-    #INFO DO PAWMANA - chcialbym zebys przekazywal nowa liste powiekszona o kolejne "zadanie" do json_data tak aby mozna bylo z nowych danych korzystac
-    if action == 1:
+def next_action(json_data):
+    print("\n","Napisz liczbe od 1 do 3 by wybrac dana akcje: \n",
+        " 1.Dodanie nowego zadania \n",
+        " 2.Wypisanie zadan \n",
+        " 3.Usuwanie lub edytowanie zadan \n",
+        " 4.Zapis bazy zadan pod zadana sciezke \n",
+        " 5.Zamkniecie programu"
+          )
+    act = int(input())
+    action(act, json_data)
+
+
+def action(act, json_data):
+    if act == 1:
         json_data = add_new_task(json_data)
         save(json_data)
+        next_action(json_data)
 
-    elif action == 2:
+    elif act == 2:
         print("Ile zadan ma zostac wypisane? By wypisac wszystkie napisz 0")
         task_amount = int(input())
         if task_amount < 0:
-            print("Nie mozna wypisac ujemnej liczby zadan")
-            next_action(2, json_data)
+            print("*Nie mozna wypisac ujemnej liczby zadan*")
+            action(2, json_data)
         else:
             # print_tasks(task_amount, json_data) TODO:BASIA
-            exit()
+            next_action(json_data)
 
-    elif action == 3:
+    elif act == 3:
+        print("Wybierz kojena akcje: \n",
+              "  1.Usuwanie zadania \n",
+              "  2.Edytowanie zadania \n",
+              "  3.Powrot")
+        act_ = int(input())
+        if act_ == 1:
+            # json_data = delete_tasks(json_data) TODO:ANIA
+            next_action(json_data)
+        elif act_ == 2:
+            # json_data = edit_tasks(json_data) TODO:ANIA
+            next_action(json_data)
+        elif act_ == 3:
+            next_action(json_data)
+        else:
+            print("*Prosze podac liczbe od 1 do 3*")
+            action(3, json_data)
+
+    elif act == 4:
+        print("Podaj sciezke pod ktora chcesz zapisac baze zadan")
+        path = str(input())
+        print("Jak chcesz nazwać plik?")
+        fileName = str(input())
+        save_to_path(path, fileName, json_data)
+        print("Plik został zapisany!")
+        next_action(json_data)
+
+    elif act == 5:
         save(json_data)
         exit()
 
     else:
-        print("Prosze podac liczbe od 1 do 3")
-        action = int(input())
-        next_action(action)
+        print("*Prosze podac liczbe od 1 do 3*")
+        act = int(input())
+        action(act, json_data)
