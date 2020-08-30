@@ -70,7 +70,8 @@ class Program:
             print("Jak chcesz nazwać plik?")
             file_name = str(input())
             save_to_path(path, file_name, self.json_data)
-            print("Plik został zapisany!")
+            if True:
+                print("Udało się zapisać!")
             self.next_action()
 
         # Save and exit
