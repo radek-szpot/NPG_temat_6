@@ -1,10 +1,10 @@
 '''
 modul pozwalajacy wypisywac n zadan
 '''
-import string
-from Task import Task
+from parse_input_for_int import parse_input_for_int
+import colours
 
-def print_tasks (ListOfTasks):
+def print_tasks (json_data):
     print("Ile zadan ma zostac wypisane?")
     task_amount = int(input())
     print("Czy zadania mają wyświetlać się posortowane?\n"
