@@ -14,7 +14,7 @@ def print_tasks(json_data):
 def print_tasks_optionally_sorted(json_data, whether_sort):
     #Print sorted
     if whether_sort == 1:
-        print("Według czego posortowane wyświetlić zadania?\n",
+        print("Jak chcesz posortować zadania?\n",
               "1. Według daty dodania\n",
               "2. Według priorytetu")
         sorting_type = parse_input_for_int(1, 2)
@@ -28,7 +28,7 @@ def print_tasks_optionally_sorted(json_data, whether_sort):
             for i in sorted_list:
                 print(i['name'], end='')
                 print(' -', i['description'])
-            print("\n", "By powrócić do panelu sterowania wciśnij enter")
+            print("\n", "Żeby powrócić do panelu sterowania wciśnij enter")
             input()
         
         #Sorting by priority
@@ -49,11 +49,11 @@ def print_tasks_optionally_sorted(json_data, whether_sort):
                 if i['importance'] == 3:
                     colours.prRed(i['name'])
                     print(' -', i['description'])
-            print("\n", "By powrócić do panelu sterowania wciśnij enter")
+            print("\n", "Żeby powrócić do panelu sterowania wciśnij enter")
             input()
 
     #Simply print
-    print('Ile zadań chcesz wypisać(By wypisać wszystkie napisz "0")?')
+    print('Ile zadań chcesz wypisać? Jeżeli chcesz wypisać wszystkie napisz "0"')
         task_amount = parse_input_for_int(0, len(json_data))
         if task_amount == 0:
             task_amount = len(json_data)
@@ -63,7 +63,7 @@ def print_tasks_optionally_sorted(json_data, whether_sort):
                 colours.prGreen(i['name'])
                 print(' -', i['description'])
                 if break_when_n == task_amount:
-                    print("\n", "By powrócić do panelu sterowania wciśnij enter")
+                    print("\n", "Żeby powrócić do panelu sterowania wciśnij enter")
                     input()
                     return
                 break_when_n += 1
@@ -71,7 +71,7 @@ def print_tasks_optionally_sorted(json_data, whether_sort):
                 colours.prYellow(i['name'])
                 print(' -', i['description'])
                 if break_when_n == task_amount:
-                    print("\n", "By powrócić do panelu sterowania wciśnij enter")
+                    print("\n", "Żeby powrócić do panelu sterowania wciśnij enter")
                     input()
                     return
                 break_when_n += 1
@@ -79,10 +79,10 @@ def print_tasks_optionally_sorted(json_data, whether_sort):
                 colours.prRed(i['name'])
                 print(' -', i['description'])
                 if break_when_n == task_amount:
-                    print("\n", "By powrócić do panelu sterowania wciśnij enter")
+                    print("\n", "Żeby powrócić do panelu sterowania wciśnij enter")
                     input()
                     return
                 break_when_n += 1
-        print("\n", "By powrócić do panelu sterowania wciśnij enter")
+        print("\n", "Żeby powrócić do panelu sterowania wciśnij enter")
         input()
     return
