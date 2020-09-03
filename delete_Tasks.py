@@ -1,12 +1,15 @@
-#funkcjinalnosc 5- usuwanie zadan
+"""
+Module which allows user to delete tasks
+"""
 
-from print_tasks import print_tasks
+from print_tasks import print_tasks_not_sorted
+from parse_input_for_int import parse_input_for_int
 
 
 def delete_tasks(list_of_tasks):
-    print_tasks(list_of_tasks)
+    print_tasks_not_sorted(list_of_tasks, len(list_of_tasks))
     print("Type task id in order to delete it")
-    n = parse_input_fot_int(min, max)
+    n = parse_input_for_int(1, len(list_of_tasks))
     a = 0
     for i in list_of_tasks:
         if i["id"] == n:
@@ -14,6 +17,5 @@ def delete_tasks(list_of_tasks):
         a += 1
 
     print("Task has been deleted")
-    print_tasks(list_of_tasks)
-    #Starałam sie to zmienic tak zeby sie odwolywalo do funkcji wypisujacej zadania, mam nadzieje ze jest ok..
-    return (list_of_tasks)
+    print_tasks_not_sorted(list_of_tasks, len(list_of_tasks))
+    return list_of_tasks
