@@ -11,21 +11,21 @@ def add_new_task(json_data):
           "  2.Ważne zadanie \n",
           "  3.Bardzo ważne zadanie")
     importance_ = parse_input_for_int(1, 3)
-    print("Give desciptrion")
+    print("Podaj opis")
     description_ = input()
 
     tidy_id = 0
-    ordered_data = {}
+    ordered_data = {}  #słownik klucz: id, wartość słownik z odpowiednim id
     # Ordering list of json data
     for json_dictionary in json_data:
         json_dictionary_id_ = json_dictionary['id']
-        ordered_data[json_dictionary_id_] = json_dictionary
-    ordered_data_sorted = sorted(ordered_data)
-    sorted_list = [ordered_data[i] for i in ordered_data_sorted]
+        ordered_data[json_dictionary_id_] = json_dictionary  #stworzenie słownika za pomocą pętli, id cały czas mogą być nieposortowane
+    ordered_data_sorted = sorted(ordered_data)  #id stają się posortowane,
+    sorted_list = [ordered_data[id] for id in ordered_data_sorted]  #wykorzystanie list comprehension i uzyskanie listy posortowanych słowników wzlędem wcześniej posortowanych id_
 
     # Prescribing id
     for json_dictionary in sorted_list:
-        sorted_list[tidy_id]["id"] = tidy_id + 1
+        sorted_list[tidy_id]["id"] = tidy_id + 1 #musimy przepisać id w celu uniknięcia błedu braku jednego id_ np: 1 2 3 5 6 7 
         tidy_id += 1
 
     json_data = sorted_list
