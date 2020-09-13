@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
-modul zapisujacy dane do pliku database.json
+A module that saves the data to database.json file.
 '''
 import json
 
