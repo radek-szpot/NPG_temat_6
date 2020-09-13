@@ -1,43 +1,21 @@
-#funkcjinalnosc 5- usuwanie zadan
-#Jakby bylo cos zle albo kod inaczej powinnam byla napisac to niech mnie ktos powiadomi
+"""
+Module which allows user to delete tasks
+"""
 
-from Task import Task
+from print_tasks import print_tasks_not_sorted
+from parse_input_for_int import parse_input_for_int
 
-def delete_tasks (ListOfTasks):
 
-    print (ListOfTasks)
-    print("Type task id in order to delete it")
-    n = int(input())
+def delete_tasks(list_of_tasks):
+    print_tasks_not_sorted(list_of_tasks, len(list_of_tasks))
+    print("Podaj id zadania, które chcesz usunąć")
+    n = parse_input_for_int(1, len(list_of_tasks))
     a = 0
-    for i in ListOfTasks:
+    for i in list_of_tasks:
         if i["id"] == n:
-            del (ListOfTasks[a])
+            del (list_of_tasks[a])
         a += 1
 
-    print ("Task has been deleted")
-    print (ListOfTasks)
-
-
-#Znalazlam w necie jeszcze takie rozwiazanie tego zadania
-#Nie wiem czy tylko to jest poprawne jesli chodzi o prace z json ale zostawie oba rozwiazania w razie czego
-#Chodzi tu o to, ze iteruje sie po wszystkich elementach listy ListOfTasks i dany element jest pomijany w nowo stworzonej liście, tak jakby zostal usuniety
-#Usuwanie jest zadanie o danym indeksie na liscie, narazie nie wiem jak sie odwolywac do id zadania
-
-def delete_tasks ():
-    view_data ()
-    new_data = []
-    with open (filename, "r") as f:
-        tasks = json.load(f)
-        data_length = len(tasks) - 1
-    print ("Type id number in order to delete task")
-    delete_option = input(f"Select a number 0-(data_length)")
-    i = 0
-    for entry in tasks:
-        if i == int(delete_option):
-            pass
-            i= i+1
-        else:
-            new_data.append(entry)
-            i= i+1
-    with open (filename, "w") as f:
-        json.dump(new_data, f)
+    print("Zadanie o podanym id zostało usunięte")
+    print_tasks_not_sorted(list_of_tasks, len(list_of_tasks))
+    return list_of_tasks

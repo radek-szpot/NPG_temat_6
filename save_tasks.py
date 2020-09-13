@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
-modul zapisujacy dane do pliku database.json
+A module that saves the data to database.json file.
 '''
 import json
 
-def save(json_data):
+def save(list_of_tasks):
     with open('database.json', mode="w") as f:
-        f.write(json.dumps(json_data))
+        f.write(json.dumps(list_of_tasks))
 
     with open('database.json') as f:
         raw_data = json.load(f)

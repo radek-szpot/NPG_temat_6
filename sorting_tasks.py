@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#opcjonalna funkcjonalność
+#optional functionality
 import json
-def chronological_sort_oldest(json_data):
-    return json_data   #jezeli id zawsze bedzie od najwiekszego +1 to zawsze bedzie chronologicznie
+def chronological_sort_oldest(list_of_tasks):
+    return list_of_tasks   #if id will always start from the biggest one +1 it will always be ordered chronologically 
 
-def chronological_sort_latest(json_data): # tu wystarczy odwrocic liste zadan
+def chronological_sort_latest(list_of_tasks): # here you only need to reverse the list of tasks

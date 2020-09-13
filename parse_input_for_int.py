@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
-Moduł sprawdzający czy input jest numeryczny i mieści się w podanym zakresie
+The module checks whether input is numerical and is in given range.
 """
 
 

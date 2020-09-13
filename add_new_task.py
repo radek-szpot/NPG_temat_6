@@ -1,24 +1,38 @@
-#to jest pierwsza funkcjonalnosc
+# to jest pierwsza funkcjonalnosc
 import string
+from parse_input_for_int import parse_input_for_int
 
 
-def add_new_task (ListOfTasks):
-
-    print("Give task name")
-    name_ = input()          #najpierw uzytkownik wypisuje potrzebne do konstruktora atrybuty klasy task
-    print("Give priority of you Task, 1 - 3 (most important)")
-    importance_ = int(input())
-    print("Give desciptrion")
+def add_new_task(json_data):
+    print("Podaj nazwę zadania")
+    name_ = input()  # najpierw uzytkownik wypisuje potrzebne do konstruktora atrybuty klasy task
+    print("Nadaj priorytet zadaniu: \n",
+          "  1.Mało ważne zadanie \n",
+          "  2.Ważne zadanie \n",
+          "  3.Bardzo ważne zadanie")
+    importance_ = parse_input_for_int(1, 3)
+    print("Podaj opis")
     description_ = input()
 
-    id_ = ListOfTasks[-1]["id"] + 1
+    tidy_id = 0
+    ordered_data = {}  #słownik klucz: id, wartość słownik z odpowiednim id
+    # Ordering list of json data
+    for json_dictionary in json_data:
+        json_dictionary_id_ = json_dictionary['id']
+        ordered_data[json_dictionary_id_] = json_dictionary  #stworzenie słownika za pomocą pętli, id cały czas mogą być nieposortowane
+    ordered_data_sorted = sorted(ordered_data)  #id stają się posortowane,
+    sorted_list = [ordered_data[id] for id in ordered_data_sorted]  #wykorzystanie list comprehension i uzyskanie listy posortowanych słowników wzlędem wcześniej posortowanych id_
 
-    task = {"id": id_, "name": name_, "importance": importance_, "description": description_} #jedno zadanie jest słownikiem a nie klasą
-    ListOfTasks.append(task)
+    # Prescribing id
+    for json_dictionary in sorted_list:
+        sorted_list[tidy_id]["id"] = tidy_id + 1 #musimy przepisać id w celu uniknięcia błedu braku jednego id_ np: 1 2 3 5 6 7 
+        tidy_id += 1
 
-    return ListOfTasks
+    json_data = sorted_list
+    id_ = json_data[-1]["id"] + 1
 
+    task = {"id": id_, "name": name_, "importance": importance_,
+            "description": description_}  # jedno zadanie jest słownikiem a nie klasą
+    json_data.append(task)
 
-
-
-
+    return json_data

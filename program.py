@@ -1,21 +1,22 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-'''
-glowna czesc wykonawcza aplikacji
-'''
+"""
+Application body
+"""
+
 from add_new_task import add_new_task
 from upload_tasks import upload
 from save_tasks import save
-# from edit_Tasks import edit
-# from delete_Tasks import delete_tasks
-# from print_tasks import print_tasks
+from edit_Tasks import edit_tasks
+from delete_Tasks import delete_tasks
+from print_tasks import print_tasks
 from save_tasks_path import save_to_path
 from parse_input_for_int import parse_input_for_int
 
 
 class Program:
     def __init__(self):
-        self.json_data = upload()
+        self.list_of_tasks = upload()
 
     def start(self):
         self.next_action()
@@ -34,15 +35,13 @@ class Program:
     def action(self, chosen_action):
         # Add new task
         if chosen_action == 1:
-            self.json_data = add_new_task(self.json_data)
-            save(self.json_data)
+            self.list_of_tasks = add_new_task(self.list_of_tasks)
+            save(self.list_of_tasks)
             self.next_action()
 
         # Print tasks
         elif chosen_action == 2:
-            print("Ile zadań ma zostać wypisane? By wypisać wszystkie napisz 0")
-            task_amount = parse_input_for_int(0, None)
-            # print_tasks(task_amount, self.json_data) TODO:BASIA
+            print_tasks(self.list_of_tasks)
             self.next_action()
 
         # Edit/delete task
@@ -53,12 +52,12 @@ class Program:
                   "  3.Powrót")
             chosen_option = parse_input_for_int(1, 3)
             if chosen_option == 1:
-                # self.json_data = delete_tasks(self.json_data) TODO:ANIA
-                save(self.json_data)
+                self.list_of_tasks = delete_tasks(self.list_of_tasks)
+                save(self.list_of_tasks)
                 self.next_action()
             elif chosen_option == 2:
-                # self.json_data = edit_tasks(self.json_data) TODO:ANIA
-                save(self.json_data)
+                self.list_of_tasks = edit_tasks(self.list_of_tasks)
+                save(self.list_of_tasks)
                 self.next_action()
             elif chosen_option == 3:
                 self.next_action()
@@ -69,11 +68,12 @@ class Program:
             path = str(input())
             print("Jak chcesz nazwać plik?")
             file_name = str(input())
-            save_to_path(path, file_name, self.json_data)
-            print("Plik został zapisany!")
+            save_to_path(path, file_name, self.list_of_tasks)
+            if True:
+                print("Udało się zapisać!")
             self.next_action()
 
         # Save and exit
         elif chosen_action == 5:
-            save(self.json_data)
+            save(self.list_of_tasks)
             exit()
