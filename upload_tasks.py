@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
-modul ladujacy zadania z pliku database.json
+The module loads tasks from database.json file
 '''
 import json
 import colours
