@@ -1,9 +1,12 @@
-# to jest pierwsza funkcjonalnosc
-import string
+"""
+Module which allows user to add new tasks
+"""
+
 from parse_input_for_int import parse_input_for_int
+from order_id import order_id
 
-
-def add_new_task(json_data):
+def add_new_task(list_of_tasks):
+    list_of_tasks = order_id(list_of_tasks) #uporzadkowuje id aby bylo poprawne
     print("Podaj nazwę zadania")
     name_ = input()  # najpierw uzytkownik wypisuje potrzebne do konstruktora atrybuty klasy task
     print("Nadaj priorytet zadaniu: \n",
@@ -14,25 +17,10 @@ def add_new_task(json_data):
     print("Podaj opis")
     description_ = input()
 
-    tidy_id = 0
-    ordered_data = {}  #słownik klucz: id, wartość słownik z odpowiednim id
-    # Ordering list of json data
-    for json_dictionary in json_data:
-        json_dictionary_id_ = json_dictionary['id']
-        ordered_data[json_dictionary_id_] = json_dictionary  #stworzenie słownika za pomocą pętli, id cały czas mogą być nieposortowane
-    ordered_data_sorted = sorted(ordered_data)  #id stają się posortowane,
-    sorted_list = [ordered_data[id] for id in ordered_data_sorted]  #wykorzystanie list comprehension i uzyskanie listy posortowanych słowników wzlędem wcześniej posortowanych id_
-
-    # Prescribing id
-    for json_dictionary in sorted_list:
-        sorted_list[tidy_id]["id"] = tidy_id + 1 #musimy przepisać id w celu uniknięcia błedu braku jednego id_ np: 1 2 3 5 6 7 
-        tidy_id += 1
-
-    json_data = sorted_list
-    id_ = json_data[-1]["id"] + 1
+    id_ = list_of_tasks[-1]["id"] + 1
 
     task = {"id": id_, "name": name_, "importance": importance_,
             "description": description_}  # jedno zadanie jest słownikiem a nie klasą
-    json_data.append(task)
+    list_of_tasks.append(task)
 
-    return json_data
+    return list_of_tasks
