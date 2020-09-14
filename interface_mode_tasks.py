@@ -2,7 +2,7 @@ from tkinter import *
 import json
 from save_tasks import save
 
-def open_window_task_to_edit(json_data, id):
+def open_window_task_to_edit(list_of_tasks, id):
     window_task_root_for_edit = Tk()
     window_task_root_for_edit.title("edytuj zadanie")
     window_task_root_for_edit.geometry("300x300")
@@ -24,18 +24,18 @@ def open_window_task_to_edit(json_data, id):
     importance_label = Label(window_task_root_for_edit, text="importance")
     importance_label.grid(row=2, column=0, pady=30)
 
-    confirm_button = Button(window_task_root_for_edit, text="confirm", command=lambda : edit_task(json_data,
+    confirm_button = Button(window_task_root_for_edit, text="confirm", command=lambda : edit_task(list_of_tasks,
                                                                                             name.get(),
                                                                                             description.get(),
                                                                                             importance.get(),
                                                                                             id))
     confirm_button.grid(row=3, column=0, columnspan=2)
 
-def edit_task(json_data, name, description, importance, id):
-    for dict in json_data:
+def edit_task(list_of_tasks, name, description, importance, id):
+    for dict in list_of_tasks:
         if dict["id"] == id:
             dict["name"] = name
             dict["description"] = description
             dict["importance"] = importance
 
-    save(json_data)
+    save(list_of_tasks)

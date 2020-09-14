@@ -17,7 +17,7 @@ def delete_tasks(list_of_tasks):
             del (list_of_tasks[a])
         a += 1
 
-    list_of_tasks = order_id(list_of_tasks)  # uporzadkowuje id aby bylo poprawne
+    list_of_tasks = order_id(list_of_tasks)  # organizes the id to be correct
     print("Zadanie o podanym id zostało usunięte")
     print_tasks_not_sorted(list_of_tasks, len(list_of_tasks))
     return list_of_tasks
