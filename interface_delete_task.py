@@ -2,18 +2,18 @@ from tkinter import *
 from save_tasks import save
 import json
 
-def delete_task(id, json_data):
+def delete_task(id, list_of_tasks):
 
     a = 0
-    for dic in json_data:
+    for dic in list_of_tasks:
         if dic["id"] == int(id):
-            del (json_data[a])
+            del (list_of_tasks[a])
         a += 1
 
     tidy_id = 0
     ordered_data = {}  # słownik klucz: id, wartość słownik z odpowiednim id
     # Ordering list of json data
-    for json_dictionary in json_data:
+    for json_dictionary in list_of_tasks:
         json_dictionary_id_ = json_dictionary['id']
         ordered_data[
             json_dictionary_id_] = json_dictionary  # stworzenie słownika za pomocą pętli, id cały czas mogą być nieposortowane
@@ -27,6 +27,6 @@ def delete_task(id, json_data):
             "id"] = tidy_id + 1  # musimy przepisać id w celu uniknięcia błedu braku jednego id_ np: 1 2 3 5 6 7
         tidy_id += 1
 
-    save(json_data)
+    save(list_of_tasks)
 
 

@@ -1,5 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+'''
+A module that saves the data under the chosen path
+'''
 import json
 
 

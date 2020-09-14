@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
-modul pozwalajacy wypisywac kolorowe napisy
+A module that allows you to write colored texts
 '''
 
 def prRed(skk): print("\033[91m {}\033[00m" .format(skk), end='')
